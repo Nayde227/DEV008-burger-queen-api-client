@@ -1,4 +1,4 @@
-export function Login() {
+export default function Login() {
     return (
         <div className="padreLogin">
           <h1>Burger Queen App</h1>
