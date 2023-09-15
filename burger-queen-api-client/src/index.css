@@ -82,17 +82,10 @@ button:focus-visible {
 }
 
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
+@media screen and(min-width: 1024px){
+  .padreLogin{
+    background-image: url("./assets/hamburguesaH.jpg");
+  background-size: 1%;
+  
   }
 }
