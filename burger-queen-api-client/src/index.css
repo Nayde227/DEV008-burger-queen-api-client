@@ -6,7 +6,7 @@
   background-size: 100%;
   min-width: 320px;
   min-height: 100vh;
-  margin-top:-20px;
+  margin-top: -20px;
   padding: 10px;
 }
 
@@ -27,11 +27,11 @@ h1 {
   -webkit-text-stroke: 1.8px #1a1a1a;
   color: #F9CF63;
   margin: 90px 30px;
-  
+
 }
 
 .singIn {
-  
+
   width: 300px;
   height: 80px;
   border-radius: 20px;
@@ -62,7 +62,8 @@ button:focus-visible {
   font-size: 40px;
 
 }
-.Email::placeholder { 
+
+.Email::placeholder {
   color: black;
 }
 
@@ -77,15 +78,25 @@ button:focus-visible {
   font-size: 40px;
   margin-top: 10%;
 }
-.Password::placeholder { 
+
+.Password::placeholder {
   color: black;
 }
 
+@media screen and (min-width:1025px) and (max-width: 2000px) {
+  .padreLogin {
+    
+    background-size: 51%;
+    background-repeat: no-repeat;
 
-@media screen and(min-width: 1024px){
-  .padreLogin{
-    background-image: url("./assets/hamburguesaH.jpg");
-  background-size: 1%;
-  
+  }
+
+  .formulario{
+    margin-left: 50%;
+  }
+  h1{
+    margin-left: 55%;
+    font-size: 90px;
   }
 }
+

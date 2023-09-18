@@ -4,7 +4,7 @@ export default function Login() {
   return (
         <div className="padreLogin">
           <h1>Burger Queen App</h1>
-          <form>
+          <form className="formulario">
           <input className='Email' type="email" placeholder='EMAIL'></input>
           <br></br>
           <input className='Password' type="password" placeholder='PASSWORD'></input>
