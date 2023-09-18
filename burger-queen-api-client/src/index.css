@@ -98,5 +98,10 @@ button:focus-visible {
     margin-left: 55%;
     font-size: 90px;
   }
+  .btnsProfile{
+    margin-left: 50%;
+    margin-top: 7%;
+    
+  }
 }
 
