@@ -19,12 +19,19 @@ export default function Login() {
     e.preventDefault()
     let us = document.getElementById("email").value;
     let pas = document.getElementById("password").value;
-    if (us.length === 2 || pas.length === 2) {
+    if (us !== "grace.hopper@systers.xyz" ) {
       Swal.fire({
         title: 'Error!',
-        text: 'Do you want to continue',
+        text: 'Cannot find user',
         icon: 'error',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'Ok'
+      })
+    } else if ( pas !== "123456") {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Wrong Password',
+        icon: 'error',
+        confirmButtonText: 'Ok'
       })
     }
     axios
