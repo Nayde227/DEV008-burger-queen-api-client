@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from 'sweetalert2';
 import axios from "axios";
 export default function Login() {
 
@@ -6,27 +7,38 @@ export default function Login() {
    const [password, setPassword] = useState('')
     
    const payload = {
-    emailId: email,
+    email: email,
     password: password,
     };
 
-    const onSubmitHandler = () => {
+    const onSubmitHandler = (e) => {
+      e.preventDefault()
       axios
       .post(
-      "PASTE YOUR API HERE",
+      "http://localhost:8080/login",
       payload
       )
+      
       .then((response) => {
       const response1 = response;
       localStorage.setItem("stringify", JSON.stringify(response1));
       localStorage.setItem("Mytoken", response1.data.token);
+      }).catch((error)=>{
+        // if (error === "incorrect password") {
+        //   Swal.fire({
+        //     title: 'Error!',
+        //     text: 'Do you want to continue',
+        //     icon: 'error',
+        //     confirmButtonText: 'Cool'
+        //   })
+        // }
       });
       };
 
   return (
         <div className="padreLogin">
           <h1>Burger Queen App</h1>
-          <form className="formulario">
+          <form className="formulario" onSubmit={onSubmitHandler}>
           <input 
            className='Email'
            type="email" 
@@ -44,7 +56,7 @@ export default function Login() {
           <button 
           className='singIn' 
           type="submit"
-          onClick={onSubmitHandler}>Sing In</button>
+          >Sing In</button>
           </form>
         </div>
       );
