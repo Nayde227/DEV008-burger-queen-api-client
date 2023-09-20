@@ -21,15 +21,13 @@ export default function Login() {
     let pas = document.getElementById("password").value;
     if (us !== "grace.hopper@systers.xyz" ) {
       Swal.fire({
-        title: 'Error!',
-        text: 'Cannot find user',
+        title: 'Cannot find user',
         icon: 'error',
         confirmButtonText: 'Ok'
       })
     } else if ( pas !== "123456") {
       Swal.fire({
-        title: 'Error!',
-        text: 'Wrong Password',
+        title: 'Wrong Password',
         icon: 'error',
         confirmButtonText: 'Ok'
       })
