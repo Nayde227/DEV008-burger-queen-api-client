@@ -19,7 +19,7 @@ export default function Login() {
     e.preventDefault()
     let us = document.getElementById("email").value;
     let pas = document.getElementById("password").value;
-    if (!us.includes("systers.xyz")) {
+    if (us !== "grace.hopper@systers.xyz" ) {
       Swal.fire({
         title: 'Cannot find user',
         icon: 'error',
