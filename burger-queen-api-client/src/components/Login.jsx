@@ -2,6 +2,7 @@ import { useState } from "react";
 import Swal from 'sweetalert2';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 export default function Login() {
 
   const navigate = useNavigate();
@@ -42,7 +43,19 @@ export default function Login() {
         
         localStorage.setItem("User", JSON.stringify(response.data.user));
         localStorage.setItem("Mytoken", response.data.accessToken);
-        navigate("/profiles");
+        
+          const userRole = response.data.user.role;
+          if(userRole === "admin"){
+            navigate("/admin")
+          } else if (userRole === "waiter") {
+            
+            navigate("/waiters");
+          } else if (userRole === "cheff") {
+            
+            navigate("/cheff");
+          }
+          
+        
       }).catch((error) => {
 
       });

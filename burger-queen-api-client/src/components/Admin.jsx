@@ -1,11 +1,11 @@
 
 
-export default function Profiles() {
+export default function Admin() {
     
     return (
         <div className="padreLogin">
 
-            <h1>Burger Queen App</h1>
+            <h1>Burger Queen Admin</h1>
             <section className="btnsProfile">
             <button className='signIn'>Cheff</button>
             <br></br>
