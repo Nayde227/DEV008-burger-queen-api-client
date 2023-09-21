@@ -46,7 +46,7 @@ export default function Login() {
         
           const userRole = response.data.user.role;
           if(userRole === "admin"){
-            navigate("/profiles")
+            navigate("/admin")
           } else if (userRole === "waiter") {
             
             navigate("/waiters");
