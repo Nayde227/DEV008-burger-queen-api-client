@@ -37,7 +37,7 @@ export default function Waiters() {
       <h2>Create Order</h2>
       <div>
         {showData.map((product) => {
-        return (<tr><td>{product.name}</td> <td><img src={product.image}/></td> <td>{product.type}</td></tr>)
+        return (<p>{product.name}</p>)
       })}
       </div>
       

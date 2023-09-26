@@ -35,12 +35,9 @@ export default function Waiters() {
     <div className='padreLogin'>
       <h1>Burger Queen Waiters</h1>
       <h2>Create Order</h2>
-      <div>
-        {showData.map((product) => {
-        return (<tr><td>{product.name}</td> <td><img src={product.image}/></td> <td>{product.type}</td></tr>)
+      {showData.map((product) => {
+        return (<p>{product.name}</p>);
       })}
-      </div>
-      
       <select className='Add Products'>
         <option value='Sandwich'>Sandwich</option>
         <option value='Orange Juice'>Orange Juice</option>

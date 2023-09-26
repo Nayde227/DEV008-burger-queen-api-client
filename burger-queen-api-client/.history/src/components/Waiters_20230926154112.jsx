@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,21 +8,19 @@ export default function Waiters() {
 
   const auth = `Bearer ${token}`; //declaramos constante auth y headers para luego llamarla en la petición
 
-  useEffect(() => {
-    const headers = {
-      'content-type': 'application/json',
-      authorization: auth,
-    };
-    axios
-      .get('http://localhost:8080/products', {
-        headers: headers,
-      })
-      .then((response) => {
-        console.log(response.data);
-        console.log('console de show', setShowData(response.data));
-      });
-    
-  }, []);
+  const headers = {
+    'content-type': 'application/json',
+    authorization: auth,
+  };
+
+  axios
+    .get('http://localhost:8080/products', {
+      headers: headers,
+    })
+    .then((response) => {
+      console.log(response.data);
+      console.log('console de show', setShowData (response.data));
+    });
 
   /* const showData = (data) => {
       //console.log('Nuevo console', response.data)
@@ -35,12 +33,9 @@ export default function Waiters() {
     <div className='padreLogin'>
       <h1>Burger Queen Waiters</h1>
       <h2>Create Order</h2>
-      <div>
-        {showData.map((product) => {
-        return (<tr><td>{product.name}</td> <td><img src={product.image}/></td> <td>{product.type}</td></tr>)
+      {showData.map((product) => {
+        <p>{product.name}</p>
       })}
-      </div>
-      
       <select className='Add Products'>
         <option value='Sandwich'>Sandwich</option>
         <option value='Orange Juice'>Orange Juice</option>
