@@ -24,13 +24,16 @@ export default function Login() {
       Swal.fire({
         title: 'Cannot find user',
         icon: 'error',
-        confirmButtonText: 'Ok'
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#f31414aa',
       })
     } else if ( pas !== "123456") {
       Swal.fire({
         title: 'Wrong Password',
         icon: 'error',
-        confirmButtonText: 'Ok'
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#f31414aa',
+        
       })
     }
     axios
