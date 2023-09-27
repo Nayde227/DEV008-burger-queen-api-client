@@ -36,6 +36,7 @@
 - Aprendimos a usar el verbo get de las peticiones http
 - Aprendimos a usar react-routers-dom
 - Iniciar la implementación de test
+- Tailwind
 
 ### Added
 
@@ -43,6 +44,7 @@
 - Agregamos un dropdown
 - Agregamos la petición get para productos
 - Instalación de test
+- Agregamos los productos a la pantalla y sus estilos
 
 
 
@@ -51,6 +53,7 @@
 - Los títulos de las rutas
 - Cambiamos la forma de filtrar los usuarios en el Login con includes
 - Cambiamos el componente Profiles a Admin
+- Cambiamos la vista de la tabla de productos
 
 ### Fixed
 
