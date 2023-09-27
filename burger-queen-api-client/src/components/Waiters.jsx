@@ -13,47 +13,47 @@ export default function Waiters() {
       'content-type': 'application/json',
       authorization: auth,
     };
-    axios
+     axios
       .get('http://localhost:8080/products', {
         headers: headers,
       })
       .then((response) => {
-        console.log(response.data);
-        console.log('console de show', setShowData(response.data));
+        console.log('data', response.data);
+        setShowData(response.data)
       });
     
   }, []);
 
-  /* const showData = (data) => {
-      //console.log('Nuevo console', response.data)
-      let body = ''
-      for(let i = 0; i < data.length; i++){
-        body += `<tr> <td>${data[i].name}</td> <td>${data[i].image}</td> <td>${data[i].type}</td> <td>${data[i].image}</td></tr>`
-      }
-    }*/
+
   return (
     <div className='padreLogin'>
       <h1>Burger Queen Waiters</h1>
       <h2>Create Order</h2>
-      <div>
-        {showData.map((product) => {
-        return (<tr><td>{product.name}</td> <td><img src={product.image}/></td> <td>{product.type}</td></tr>)
-      })}
-      </div>
-      
-      <select className='Add Products'>
-        <option value='Sandwich'>Sandwich</option>
-        <option value='Orange Juice'>Orange Juice</option>
-        <option value='Latte'>Latte</option>
-      </select>
 
-      <section>
-        <th>Price</th>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Image</th>
-        <tbody></tbody>
-      </section>
+      <table className= 'table w-full'>
+        <thead>
+          <tr className='flex flex-row justify-center'>
+            <th className='border border-black bg-indigo-500 basis-1/2'>Name</th>
+            <th className='border border-black bg-indigo-500 basis-1/2'>Type</th>
+            <th className='border border-black bg-indigo-500 basis-1/2'>Price</th>
+            <th className='border border-black bg-indigo-500 basis-1/2'>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+        {showData.map((product) => {
+          return (
+            <tr key={product.id}
+            className='flex flex-row self-center' >
+              <td className='border border-black bg-indigo-300 basis-1/2'>{product.name}</td>
+              <td className='border border-black bg-indigo-300 basis-1/2'>{product.type}</td> 
+              <td className='border border-black bg-indigo-300 basis-1/2'>{product.price}</td>
+              <td className='border border-black bg-indigo-300 basis-1/2'><img src={product.image} /></td>
+            </tr>)
+        })}
+        </tbody>
+      </table>
+
+
       <button>Sign Out</button>
     </div>
   );
