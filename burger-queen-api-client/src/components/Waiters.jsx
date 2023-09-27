@@ -27,16 +27,16 @@ export default function Waiters() {
 
   return (
     <div className='padreLogin'>
-      <h1>Burger Queen Waiters</h1>
-      <h2>Create Order</h2>
+      <h1 className='text-amber-400 text-8xl m-10'>Burger Queen Waiters</h1>
+      <h2 className='text-4xl font-bold p-4'>Create Order</h2>
 
-      <table className= 'table w-full'>
+      <table className= 'tableShow w-full'>
         <thead>
           <tr className='flex flex-row justify-center'>
-            <th className='border border-black bg-amber-500 basis-1/2'>Name</th>
-            <th className='border border-black bg-amber-500 basis-1/2'>Type</th>
-            <th className='border border-black bg-amber-500 basis-1/2'>Price</th>
-            <th className='border border-black bg-amber-500 basis-1/2'>Image</th>
+            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Name</th>
+            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Type</th>
+            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Price</th>
+            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -44,17 +44,36 @@ export default function Waiters() {
           return (
             <tr key={product.id}
             className='flex flex-row self-center' >
-              <td className='border border-black bg-orange-100 basis-1/2'>{product.name}</td>
-              <td className='border border-black bg-orange-100 basis-1/2'>{product.type}</td> 
-              <td className='border border-black bg-orange-100 basis-1/2'>{product.price}</td>
-              <td className='border border-black bg-orange-100 basis-1/2'><img src={product.image} /></td>
+              <td className='border border-black bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
+              <td className='border border-black bg-orange-100 basis-1/2 text-xl'>{product.type}</td> 
+              <td className='border border-black bg-orange-100 basis-1/2 text-xl'>{product.price}</td>
+              <td className='border border-black bg-orange-100 basis-1/2 space-x-5 space-y-1'>
+              
+               <button className='buttonAdd border rounded-lg border-black bg-amber-500  p-1 text-xl'>Add</button> 
+               <button className='buttonDelete border rounded-lg border-black bg-red-400 p-1 text-xl'>Delete</button>
+               
+              </td>
             </tr>)
         })}
         </tbody>
       </table>
+      
+      {/* <table className='tableTwo'>
+        <thead>
+          <tr>
+            <th className='border border-black bg-amber-500 basis-1/2'>Image</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          <td className='border border-black bg-orange-100 basis-1/2'><img src={product.image} /></td>
+          </tr>
+        </tbody>
+      </table> */}
 
 
-      <button>Sign Out</button>
+      <button className='buttonSingOut border-2 rounded-lg border-red-400 p-1 text-xl'>Sign Out</button>
     </div>
   );
 }

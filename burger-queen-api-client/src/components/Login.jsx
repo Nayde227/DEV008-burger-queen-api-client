@@ -20,22 +20,7 @@ export default function Login() {
     e.preventDefault()
     let us = document.getElementById("email").value;
     let pas = document.getElementById("password").value;
-    if (!us.includes("systers.xyz")) {
-      Swal.fire({
-        title: 'Cannot find user',
-        icon: 'error',
-        confirmButtonText: 'Ok',
-        confirmButtonColor: '#f31414aa',
-      })
-    } else if ( pas !== "123456") {
-      Swal.fire({
-        title: 'Wrong Password',
-        icon: 'error',
-        confirmButtonText: 'Ok',
-        confirmButtonColor: '#f31414aa',
-        
-      })
-    }
+    
     axios
       .post(
         "http://localhost:8080/login",
@@ -60,7 +45,22 @@ export default function Login() {
           
         
       }).catch((error) => {
-
+        if (error, !us.includes("systers.xyz")) {
+          Swal.fire({
+            title: 'Cannot find user',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#f31414aa',
+          })
+        } else if ( error, pas !== "123456") {
+          Swal.fire({
+            title: 'Wrong Password',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#f31414aa',
+            
+          })
+        }
       });
   };
 
