@@ -33,10 +33,10 @@ export default function Waiters() {
       <table className= 'table w-full'>
         <thead>
           <tr className='flex flex-row justify-center'>
-            <th className='border border-black bg-indigo-500 basis-1/2'>Name</th>
-            <th className='border border-black bg-indigo-500 basis-1/2'>Type</th>
-            <th className='border border-black bg-indigo-500 basis-1/2'>Price</th>
-            <th className='border border-black bg-indigo-500 basis-1/2'>Image</th>
+            <th className='border border-black bg-amber-500 basis-1/2'>Name</th>
+            <th className='border border-black bg-amber-500 basis-1/2'>Type</th>
+            <th className='border border-black bg-amber-500 basis-1/2'>Price</th>
+            <th className='border border-black bg-amber-500 basis-1/2'>Image</th>
           </tr>
         </thead>
         <tbody>
@@ -44,10 +44,10 @@ export default function Waiters() {
           return (
             <tr key={product.id}
             className='flex flex-row self-center' >
-              <td className='border border-black bg-indigo-300 basis-1/2'>{product.name}</td>
-              <td className='border border-black bg-indigo-300 basis-1/2'>{product.type}</td> 
-              <td className='border border-black bg-indigo-300 basis-1/2'>{product.price}</td>
-              <td className='border border-black bg-indigo-300 basis-1/2'><img src={product.image} /></td>
+              <td className='border border-black bg-orange-100 basis-1/2'>{product.name}</td>
+              <td className='border border-black bg-orange-100 basis-1/2'>{product.type}</td> 
+              <td className='border border-black bg-orange-100 basis-1/2'>{product.price}</td>
+              <td className='border border-black bg-orange-100 basis-1/2'><img src={product.image} /></td>
             </tr>)
         })}
         </tbody>
