@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from '@testing-library/react'
 //import {main} from '../main'
-import App from "../App";
+import App from "../../App";
 
 
 describe("App", () => {

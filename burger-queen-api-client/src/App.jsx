@@ -1,10 +1,10 @@
 
-import  Login  from './components/Login'
-import  Admin  from './components/Admin'
+import  Login  from './components/Login/Login'
+import  Admin  from './components/Admin/Admin'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Waiters from './components/Waiters'
-import Cheff from './components/Cheff'
+import Waiters from './components/Waiters/Waiters'
+import Cheff from './components/Cheff/Cheff'
 
 function App() {
   

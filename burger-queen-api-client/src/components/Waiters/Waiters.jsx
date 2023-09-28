@@ -6,6 +6,10 @@ export default function Waiters() {
   const [showData, setShowData] = useState([]);
   const token = localStorage.getItem('Mytoken'); //guardamos el token obtenido en el login para obtener los productos
 
+
+  // const filterType = (type) => {
+  //   console.log(type)
+  // }
   const auth = `Bearer ${token}`; //declaramos constante auth y headers para luego llamarla en la petición
 
   useEffect(() => {
@@ -27,16 +31,18 @@ export default function Waiters() {
 
   return (
     <div className='padreLogin'>
-      <h1 className='text-amber-400 text-8xl m-10'>Burger Queen Waiters</h1>
-      <h2 className='text-4xl font-bold p-4'>Create Order</h2>
-
+      <h1 className='text-amber-400 text-7xl m-12'>Burger Queen Waiters</h1>
+      <button className='buttonSingOut border-2 rounded-lg border-red-400 p-1 text-xl'>Sign Out</button>
+      <h2 className='text-5xl font-bold p-4'>Create Order</h2>
+      <button className='buttonSingOut border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Breackfast</button>
+      <button className='buttonSingOut border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Lunch</button>
       <table className= 'tableShow w-full'>
         <thead>
           <tr className='flex flex-row justify-center'>
-            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Name</th>
-            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Type</th>
-            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Price</th>
-            <th className='border border-black bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Name</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -44,13 +50,13 @@ export default function Waiters() {
           return (
             <tr key={product.id}
             className='flex flex-row self-center' >
-              <td className='border border-black bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
-              <td className='border border-black bg-orange-100 basis-1/2 text-xl'>{product.type}</td> 
-              <td className='border border-black bg-orange-100 basis-1/2 text-xl'>{product.price}</td>
-              <td className='border border-black bg-orange-100 basis-1/2 space-x-5 space-y-1'>
+              <td className=' bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
+              <td className=' bg-orange-100 basis-1/2 text-xl'>{product.type}</td> 
+              <td className=' bg-orange-100 basis-1/2 text-xl'>{product.price}</td>
+              <td className=' bg-orange-100 basis-1/2 space-x-5 space-y-1'>
               
-               <button className='buttonAdd border rounded-lg border-black bg-amber-500  p-1 text-xl'>Add</button> 
-               <button className='buttonDelete border rounded-lg border-black bg-red-400 p-1 text-xl'>Delete</button>
+               <button className='buttonAdd border rounded-lg  bg-amber-500  p-1 text-xl'>Add</button> 
+               <button className='buttonDelete border rounded-lg  bg-red-400 p-1 text-xl'>Delete</button>
                
               </td>
             </tr>)
@@ -73,7 +79,7 @@ export default function Waiters() {
       </table> */}
 
 
-      <button className='buttonSingOut border-2 rounded-lg border-red-400 p-1 text-xl'>Sign Out</button>
+      
     </div>
   );
 }
