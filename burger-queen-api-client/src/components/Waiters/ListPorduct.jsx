@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import {Buttons} from './Buttons'
 import axios from 'axios';
 
-export default function ListProducts() {
+export default function ListProducts({ setOrder }) {
     const [showData, setShowData] = useState([]);
 
     const token = localStorage.getItem('Mytoken'); //guardamos el token obtenido en el login para obtener los productos
@@ -27,24 +28,21 @@ export default function ListProducts() {
       
     }, []);
 
-        
-        
-    const handleClick = (e) => {
+    const handleAddClick = (productId) => {
         //Debería guardar el id del producto para luego mostrarlo en el renderizado
-        e.preventDefault();
-        // setShowData((productItems) => {
-        //     const isProductFound = productItems.find((product)=> product.id);
-        //     if(isProductFound) {
-        //         return productItems.map((product)=>{
-        //             if(product.id){
-        //                 return{...product, name: product.name}
-        //             } else { return product}
-        //         })
-        //     }
-        // })
-        alert('¡Agregaste un producto!');
+        const productToAdd = showData.find((product) => product.id === productId)
+
+        if(productToAdd){
+            setOrder((prevOrder)=> [...prevOrder, productToAdd])
+            
+        }
+    
+    }
+     const handleDeleteClick = (productId) => {
+        setOrder((prevOrder)=> prevOrder.filter((product)=> product.id !== productId))
+     }
         
-      }
+   
 
     return (
         <>
@@ -54,6 +52,7 @@ export default function ListProducts() {
       <table className= 'tableShow w-full'>
         <thead>
           <tr className='flex flex-row justify-center'>
+            
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Name</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
@@ -65,14 +64,14 @@ export default function ListProducts() {
           return (
             <tr key={product.id}
             className='flex flex-row self-center' >
+              <td><img className="imageProduct  bg-orange-100" src={product.image} width={200} height={200}/></td>
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.type}</td> 
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.price}$</td>
               <td className=' bg-orange-100 basis-1/2 space-x-5 space-y-1'>
               
-               <button className='addButton border rounded-lg  bg-amber-500  p-1 text-xl'
-                onClick={handleClick}>Add</button> 
-               <button className='buttonDelete border rounded-lg  bg-red-400 p-1 text-xl'>Delete</button>
+               <Buttons onClick={handleAddClick} productId={product.id} label='Add' className='addButton border rounded-lg  bg-amber-500  p-1 text-xl'/>
+               <Buttons onClick={handleDeleteClick} productId={product.id} label='Delete' className='buttonDelete border rounded-lg  bg-red-400 p-1 text-xl'/>
                
               </td>
             </tr>)

@@ -13,9 +13,9 @@ export default function Waiters() {
     <div className='padreLogin'>
       <h1 className='text-amber-400 text-7xl m-12'>Burger Queen Waiters</h1>
       <button className='buttonSingOut border-2 rounded-lg border-red-400 p-1 text-xl'>Sign Out</button>
-      <ListProducts></ListProducts>
+      <ListProducts setOrder={setOrder}></ListProducts>
 
-      <ListOrder order={order} setOrder={setOrder}></ListOrder>
+      <ListOrder order={order} ></ListOrder>
        
 
 
