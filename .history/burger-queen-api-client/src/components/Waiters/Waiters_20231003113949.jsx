@@ -13,16 +13,6 @@ export default function Waiters() {
     navigate('/');
   };
 
-  function handleSubmit(e) {
-    // Previene que el navegador recargue la página
-    e.preventDefault();
-
-    // Lee los datos del formulario
-    const form = e.target;
-    const formData = new FormData(form);
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-  }
   return (
     <div className='padreLogin'>
       <h1 className='text-amber-400 text-8xl m-12'>Burger Queen Waiters</h1>
@@ -47,23 +37,14 @@ export default function Waiters() {
         </svg>
       </button>
       <h2 className='text-5xl font-bold p-4'>Create Order</h2>
-
-
-
-
-
-
-      <form method="post" onSubmit={handleSubmit}>
+      <form>
         <label className='bg-amber-400 basis-1/2 inputName text-3xl'>
           Client Name:
           <input className='bg-orange-100 m-3' type='text' name='name' />
         </label>
 
-         <input className='buttonSubmit m-6' type='submit' value='Submit' /> 
+        {/* <input className='buttonSubmit m-6' type='submit' value='Submit' /> */}
       </form>
-
-
-
       <ListProducts setOrder={setOrder}></ListProducts>
 
       <ListOrder order={order}></ListOrder>

@@ -46,6 +46,7 @@ export default function ListProducts({ setOrder }) {
 
     return (
         <>
+<h2 className='text-5xl font-bold p-4'>Create Order</h2>
       <button className='buttonBreackfast border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Breackfast</button>
       <button className='buttonLunch border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Lunch</button>
       <table className= ' tableShow w-10/12 mx-24'>
