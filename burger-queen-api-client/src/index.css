@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .padreLogin {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-image: url("./assets/hamburguesaH.jpg");
@@ -87,23 +88,24 @@ button:focus-visible {
 
 @media screen and (min-width:1025px) and (max-width: 2000px) {
   .padreLogin {
-    
+
     background-size: 51%;
     background-repeat: no-repeat;
 
   }
 
-  .formulario{
+  .formulario {
     margin-left: 50%;
   }
-  h1{
+
+  h1 {
     margin-left: 55%;
     font-size: 90px;
   }
-  .btnsProfile{
+
+  .btnsProfile {
     margin-left: 50%;
     margin-top: 7%;
-    
+
   }
 }
-

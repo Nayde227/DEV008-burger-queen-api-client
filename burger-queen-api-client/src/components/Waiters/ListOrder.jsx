@@ -8,10 +8,10 @@ export default function ListOrder({ order }) {
             <table className='tableProducts w-3/6 mx-72 my-20'
             >
                 <thead>
-                    <tr className='flex flex-row justify-center'>
+                    <tr className='productsHeadTable'>
                         <th className=' bg-amber-400 basis-1/2 text-2xl'>Product Name</th>
                         <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
-                        <th className=' bg-amber-400 basis-1/2 text-2xl'>Quantity</th>
+                        
 
                     </tr>
                 </thead>
@@ -19,19 +19,21 @@ export default function ListOrder({ order }) {
                     {order.map((product) => {
                         return (
                             <tr key={product.id}
-                                className='flex flex-row self-center' >
-                                <td className=' bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
-
-                                <td className=' bg-orange-100 basis-1/2 text-xl'>{product.price}$</td>
-                                <td className=' bg-orange-100 basis-1/2 space-x-5 space-y-1'>
-
-
-
-                                </td>
+                                className='ProductBodyTable' >
+                                <td className=' bg-orange-100 basis-1/2 text-xl p-2'>{product.name}</td>
+                                <td className=' bg-orange-100 basis-1/2 text-xl p-2'>{product.price}$</td>
+                                
                             </tr>)
 
                     })}
                 </tbody>
+                <tfoot>
+                    <tr>
+                    <th className='bg-orange-100  text-xl p-2'>Total</th>
+                    <th className='bg-orange-100 text-xl p-d'></th>
+                    </tr>
+                    
+                </tfoot>
             </table>
         </>
     )

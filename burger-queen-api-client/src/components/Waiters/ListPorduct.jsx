@@ -52,8 +52,8 @@ export default function ListProducts({ setOrder }) {
       <table className= 'tableShow w-full'>
         <thead>
           <tr className='flex flex-row justify-center'>
-            
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>Name</th>
+          <th className=' bg-amber-400 basis-1/3 text-2xl'>Img</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Product Name</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
