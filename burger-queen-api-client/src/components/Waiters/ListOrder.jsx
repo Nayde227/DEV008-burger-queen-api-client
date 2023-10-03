@@ -19,9 +19,11 @@ export default function ListOrder({ order }) {
                     {order.map((product) => {
                         return (
                             <tr key={product.id}
-                                className='ProductBodyTable' >
+                                className='productBodyTable' >
                                 <td className=' bg-orange-100 basis-1/2 text-xl p-2'>{product.name}</td>
                                 <td className=' bg-orange-100 basis-1/2 text-xl p-2'>{product.price}$</td>
+                                
+
                                 
                             </tr>)
 

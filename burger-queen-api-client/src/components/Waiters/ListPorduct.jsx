@@ -47,11 +47,11 @@ export default function ListProducts({ setOrder }) {
     return (
         <>
 <h2 className='text-5xl font-bold p-4'>Create Order</h2>
-      <button className='buttonSingOut border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Breackfast</button>
-      <button className='buttonSingOut border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Lunch</button>
-      <table className= 'tableShow w-full'>
+      <button className='buttonBreackfast border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Breackfast</button>
+      <button className='buttonLunch border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Lunch</button>
+      <table className= ' tableShow w-10/12 mx-24'>
         <thead>
-          <tr className='flex flex-row justify-center'>
+          <tr className='flex  justify-center  '>
           <th className=' bg-amber-400 basis-1/3 text-2xl'>Img</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Product Name</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
@@ -63,17 +63,17 @@ export default function ListProducts({ setOrder }) {
         {showData.map((product) => {
           return (
             <tr key={product.id}
-            className='flex flex-row self-center' >
+            className='flex  self-center' >
               <td><img className="imageProduct  bg-orange-100" src={product.image} width={200} height={200}/></td>
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.type}</td> 
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.price}$</td>
-              <td className=' bg-orange-100 basis-1/2 space-x-5 space-y-1'>
+               <td className=' bg-orange-100 basis-1/2 space-x-4 space-y-1'> 
               
                <Buttons onClick={handleAddClick} productId={product.id} label='Add' className='addButton border rounded-lg  bg-amber-500  p-1 text-xl'/>
                <Buttons onClick={handleDeleteClick} productId={product.id} label='Delete' className='buttonDelete border rounded-lg  bg-red-400 p-1 text-xl'/>
-               
-              </td>
+               </td>
+            
             </tr>)
 
         })}

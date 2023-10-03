@@ -46,13 +46,9 @@ h1 {
 
 }
 
-/* button:hover {
-  border-color: #646cff;
-} */
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
+.buttonSingOut{
+  margin-left: 80%;
+}
 
 .Email {
   width: 500px;
