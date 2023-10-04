@@ -5,6 +5,7 @@ import ListOrder from './ListOrder';
 
 export default function Waiters() {
   const [order, setOrder] = useState([]);
+  const [clientName, setClientName] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,14 +22,18 @@ export default function Waiters() {
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
+    // Guarda el nombre del cliente en el estado
+    setClientName(formJson.name);
+
+    // Limpia el formulario (opcional)
+    form.reset();
   }
   return (
-    <div className='padreLogin'>
+    <div className='padreWaiters'>
       <h1 className='text-amber-400 text-8xl m-12'>Burger Queen Waiters</h1>
       <button
         onClick={handleBackClick}
-        className='buttonSingOut  border-2 rounded-lg border-red-400 p-1 '
+        className='buttonSingOut  rounded-lg '
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -54,19 +59,22 @@ export default function Waiters() {
 
 
       <form method="post" onSubmit={handleSubmit}>
-        <label className='bg-amber-400 basis-1/2 inputName text-3xl'>
+        <label className='bg-amber-400 basis-1/2 inputName text-3xl ml-2'>
           Client Name:
           <input className='bg-orange-100 m-3' type='text' name='name' />
         </label>
 
-         <input className='buttonSubmit m-6' type='submit' value='Submit' /> 
+        <input className='buttonSubmit m-6 ' type='submit' value='Save' />
       </form>
 
-
-
+      <div className=' text-3xl m-2 font-semibold'>
+        Client: {clientName}
+      </div>
       <ListProducts setOrder={setOrder}></ListProducts>
-
+      
       <ListOrder order={order}></ListOrder>
+      <button className='buttonSend border rounded-lg bg-orange-100 p-1 m-3 text-3xl w-48 drop-shadow-2xl font-semibold'>Send Order</button>
+
     </div>
   );
 }

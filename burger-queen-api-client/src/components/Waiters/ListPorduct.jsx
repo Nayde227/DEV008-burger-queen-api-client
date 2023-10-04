@@ -21,7 +21,7 @@ export default function ListProducts({ setOrder }) {
           headers: headers,
         })
         .then((response) => {
-          console.log('data', response.data);
+          
           setShowData(response.data)
           
         });
@@ -46,8 +46,8 @@ export default function ListProducts({ setOrder }) {
 
     return (
         <>
-      <button className='buttonBreackfast border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Breackfast</button>
-      <button className='buttonLunch border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Lunch</button>
+      {/* <button className='buttonBreackfast border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Breackfast</button>
+      <button className='buttonLunch border rounded-lg bg-yellow-400 p-1 m-3 text-3xl'>Lunch</button> */}
       <table className= ' tableShow w-10/12 mx-24'>
         <thead>
           <tr className='flex  justify-center  '>
@@ -67,10 +67,10 @@ export default function ListProducts({ setOrder }) {
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.name}</td>
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.type}</td> 
               <td className=' bg-orange-100 basis-1/2 text-xl'>{product.price}$</td>
-               <td className=' bg-orange-100 basis-1/2 space-x-4 space-y-1'> 
+               <td className=' bg-orange-100 basis-1/2 space-x-4 space-y-1 flex flex-row justify-center items-center'> 
               
-               <Buttons onClick={handleAddClick} productId={product.id} label='Add' className='addButton border rounded-lg  bg-amber-500  p-1 text-xl'/>
-               <Buttons onClick={handleDeleteClick} productId={product.id} label='Delete' className='buttonDelete border rounded-lg  bg-red-400 p-1 text-xl'/>
+               <Buttons onClick={handleAddClick} productId={product.id} label='Add' className='addButton rounded-lg  bg-amber-400  p-2 text-xl mt-1 w-20 drop-shadow-lg'/>
+               <Buttons onClick={handleDeleteClick} productId={product.id} label='Delete' className='buttonDelete rounded-lg  bg-red-500 p-2 text-xl w-20 drop-shadow-lg'/>
                </td>
             
             </tr>)

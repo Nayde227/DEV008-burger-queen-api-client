@@ -12,6 +12,15 @@
   margin-top: -20px;
   padding: 10px;
 }
+.padreWaiters {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./assets/hamburguesaH.jpg");
+  background-size: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  margin-top: -20px;
+  padding: 10px;
+}
 
 
 body {
@@ -48,6 +57,7 @@ h1 {
 
 .buttonSingOut{
   margin-left: 80%;
+  margin-top: -10%;
 }
 
 .Email {
