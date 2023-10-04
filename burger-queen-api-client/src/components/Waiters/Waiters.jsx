@@ -62,12 +62,12 @@ export default function Waiters() {
 
 
       <form method="post" onSubmit={handleSubmit}>
-        <label className='bg-amber-400 basis-1/2 inputName text-3xl ml-2'>
+        <label className='bg-amber-400 basis-1/2 inputName text-3xl ml-2 p-1 rounded-lg'>
           Client Name:
           <input className='bg-orange-100 m-3' type='text' name='name' />
         </label>
 
-        <input className='buttonSubmit m-6 ' type='submit' value='Save' />
+        <input className='buttonSubmit m-6 border-4 border-amber-400 drop-shadow-2xl bg-orange-100 px-4 py-2 rounded-lg font-semibold text-xl ' type='submit' value='Save' />
       </form>
 
       <div className=' text-3xl m-2 font-semibold'>
@@ -76,7 +76,7 @@ export default function Waiters() {
       <ListProducts setOrder={setOrder}></ListProducts>
       
       <ListOrder order={order}></ListOrder>
-      <button className='buttonSend border rounded-lg bg-orange-100 p-1 m-3 text-3xl w-48 drop-shadow-2xl font-semibold'>Send Order</button>
+      <button className='buttonSend rounded-lg bg-orange-100 p-1 m-3 text-3xl w-48 drop-shadow-2xl font-semibold'>Send Order</button>
 
     </div>
   );
