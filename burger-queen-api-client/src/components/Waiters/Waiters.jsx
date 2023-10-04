@@ -30,14 +30,15 @@ export default function Waiters() {
   }
   return (
     <div className='padreWaiters'>
-      <h1 className='text-amber-400 text-8xl m-12'>Burger Queen Waiters</h1>
+      <section className='titleWaiters ml-8'>
+      <h1 className='text-amber-400 text-8xl '>Burger Queen Waiters</h1>
       <button
         onClick={handleBackClick}
         className='buttonSingOut  rounded-lg '
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width='30'
+          width='40'
           height='50'
           viewBox='0 0 24 24'
           fill='none'
@@ -51,6 +52,8 @@ export default function Waiters() {
           <line x1='21' x2='9' y1='12' y2='12' />
         </svg>
       </button>
+      
+      </section>
       <h2 className='text-5xl font-bold p-4'>Create Order</h2>
 
 

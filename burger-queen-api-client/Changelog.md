@@ -59,4 +59,28 @@
 
 - Se resuelve bug de obtener productos
 
+## 1.1.0 - 2023-10-04
+
+
+### Added
+
+- Agregamos la lista de productos con sus imagenes
+- Agregamos la funcionalidad y los botones de add y delete
+- Agregamos la funcionalidad del botón de logout
+- Agregamos la suma del total de los precios
+- Agregamos estilos a todo lo nuevo
+- Agregamos los componentes de botón y List Order y List Product
+
+
+### Changed
+
+- La vista de mesero en el figma y en el código
+- Cambiamos el botón de logout por un ícono
+- Cambiamos los colores de la imagen de fondo
+- Cambiamos la vista de la tabla de productos
+
+### Fixed
+
+- Se resuelve bug de agregar y borrar productos
+
 

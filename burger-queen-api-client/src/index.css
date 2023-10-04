@@ -55,9 +55,16 @@ h1 {
 
 }
 
+
+.titleWaiters{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
 .buttonSingOut{
-  margin-left: 80%;
-  margin-top: -10%;
+  
+ 
+  
 }
 
 .Email {
