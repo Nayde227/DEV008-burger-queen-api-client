@@ -26,27 +26,38 @@ export default function ListProducts({ setOrder, order }) {
   const handleAddClick = (productId) => {
     //Debería guardar el id del producto para luego mostrarlo en el renderizado
     const productToAdd = showData.find((product) => product.id === productId);
-    const productIsAlReadyInOrder = order.some(
-      //some retornoa t or f si encuentra una coincidencia
+    const productIsAlReadyInOrder = order.some( //some retorna t or f si encuentra una coinicencia 
       (product) => product.id === productId
     );
 
     if (productIsAlReadyInOrder) {
       setOrder((prevOrder) => [
         ...prevOrder.map((product) => {
-          if (product.id === productId) {
-            return {
-              ...product,
-              qty: product.qty + 1,
-            };
-          } else {
+        if (product.id === productId) {
+          if (product.qty > 1) {
             return {
               ...product,
               qty: product.qty - 1,
             };
           }
-        }),
-      ]);
+        }
+        return product;
+      });
+      return updatedOrder.filter((product) => product.qty > 0);
+        ]);
+        // 
+        //   if (product.id === productId) {
+        //     return {
+        //       ...product,
+        //       qty: product.qty + 1,
+        //     };
+        //   } else {
+        //     return product;
+        //   }
+        // }),
+
+
+    
     } else {
       productToAdd.qty = 1;
       setOrder((prevOrder) => [...prevOrder, productToAdd]);
@@ -70,7 +81,7 @@ export default function ListProducts({ setOrder, order }) {
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
-            </tr>
+          </tr>
         </thead>
         <tbody>
           {showData.map((product) => {

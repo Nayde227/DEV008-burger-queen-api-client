@@ -36,8 +36,8 @@ export default function ListOrder({ order }) {
             onClick={() => handleAddClick(product.qty)}>+</button>
             <button className=' bg-amber-400 basis-1/2 text-8xl'
             onClick={() => handleDeleteClick(product.qty)}>-</button> */}
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>+</th>
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>-</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'> + Add to</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>- Delete to</th>
           </tr>
         </thead>
         <tbody>

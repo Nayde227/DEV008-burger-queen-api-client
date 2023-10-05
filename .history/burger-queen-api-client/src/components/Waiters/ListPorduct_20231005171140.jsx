@@ -70,7 +70,9 @@ export default function ListProducts({ setOrder, order }) {
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
-            </tr>
+            <button onClick={() => handleAddClick(product.qty)}>+</button>
+            <button onClick={() => handleDeleteClick(product.qty)}>-</button>
+          </tr>
         </thead>
         <tbody>
           {showData.map((product) => {

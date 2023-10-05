@@ -27,7 +27,6 @@ export default function ListProducts({ setOrder, order }) {
     //Debería guardar el id del producto para luego mostrarlo en el renderizado
     const productToAdd = showData.find((product) => product.id === productId);
     const productIsAlReadyInOrder = order.some(
-      //some retornoa t or f si encuentra una coincidencia
       (product) => product.id === productId
     );
 
@@ -39,11 +38,8 @@ export default function ListProducts({ setOrder, order }) {
               ...product,
               qty: product.qty + 1,
             };
-          } else {
-            return {
-              ...product,
-              qty: product.qty - 1,
-            };
+          } else{
+            return product;
           }
         }),
       ]);
@@ -51,7 +47,8 @@ export default function ListProducts({ setOrder, order }) {
       productToAdd.qty = 1;
       setOrder((prevOrder) => [...prevOrder, productToAdd]);
     }
-  };
+
+   };
   const handleDeleteClick = (productId) => {
     setOrder((prevOrder) =>
       prevOrder.filter((product) => product.id !== productId)
@@ -70,7 +67,7 @@ export default function ListProducts({ setOrder, order }) {
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Type</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Add or Delete</th>
-            </tr>
+          </tr>
         </thead>
         <tbody>
           {showData.map((product) => {

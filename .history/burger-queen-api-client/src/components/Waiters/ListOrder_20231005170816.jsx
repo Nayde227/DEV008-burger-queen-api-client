@@ -32,12 +32,8 @@ export default function ListOrder({ order }) {
           <tr className='productsHeadTable'>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Product Name</th>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
-            {/* <button className=' bg-amber-400 basis-1/2 text-8xl' 
-            onClick={() => handleAddClick(product.qty)}>+</button>
-            <button className=' bg-amber-400 basis-1/2 text-8xl'
-            onClick={() => handleDeleteClick(product.qty)}>-</button> */}
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>+</th>
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>-</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Cantidad Suma</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Cantidad Resta</th>
           </tr>
         </thead>
         <tbody>
@@ -50,12 +46,14 @@ export default function ListOrder({ order }) {
                 <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
                   {product.price}$
                 </td>
-                <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
+                <button className=' bg-orange-100 basis-1/2 text-xl p-2'onClick={() => (product.qty)}>+</button>
+                <button className=' bg-orange-100 basis-1/2 text-xl p-2' onClick={() => (product.qty)}>-</button>
+                {/* <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
                   {product.qty}
                 </td>
                 <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
                   {product.qty}
-                </td>
+                </td> */}
               </tr>
             );
           })}
