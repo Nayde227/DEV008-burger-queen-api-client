@@ -14,9 +14,24 @@ export default function Waiters() {
     navigate('/');
   };
 
-  function handleSubmit(e) {
+  function handleSubmitOrder(e) {
     // Previene que el navegador recargue la página
     e.preventDefault();
+    const headers = {
+      'content-type': 'application/json',
+      authorization: auth,
+    };
+    const body = JSON.stringify(order)
+    
+    
+    axios
+      .post('http://localhost:8080/products', {
+        headers: headers,
+      })
+      .then((response) => {
+        setShowData(response.data);
+      });
+  
 
     // Lee los datos del formulario
     const form = e.target;
@@ -55,7 +70,7 @@ export default function Waiters() {
       </section>
       <h2 className='text-5xl font-bold p-4'>Create Order</h2>
 
-      <form method='post' onSubmit={handleSubmit}>
+      <form method='post' onSubmit={handleSubmitOrder}>
         <label className='bg-amber-400 basis-1/2 inputName text-3xl ml-2 p-1 rounded-lg'>
           Client Name:
           <input className='bg-orange-100 m-3' type='text' name='name' />
@@ -70,7 +85,7 @@ export default function Waiters() {
 
       <div className=' text-3xl m-2 font-semibold'>Client: {clientName}</div>
       <ListProducts setOrder={setOrder} order={order}></ListProducts>
-      <ListOrder order={order}></ListOrder>
+      <ListOrder setOrder={setOrder} order={order}></ListOrder>
 
       <button className='buttonSend rounded-lg bg-orange-100 p-1 m-3 text-3xl w-48 drop-shadow-2xl font-semibold'>
         Send Order

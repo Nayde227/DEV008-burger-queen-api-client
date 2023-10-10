@@ -1,29 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { Buttons } from './Buttons';
 
-// export const ListOrder = ({order, setOrder})=>{
-//     const addProduct = (product) => {
-//         setOrder([...order, product]);
-//     }
-//     console.log(order)
 
-export default function ListOrder({ order }) {
+export default function ListOrder({ order, setOrder }) {
   // Función para calcular el total de los precios
   const calculateTotal = () => {
-    return order.reduce((total, product) => total + product.price, 0);
-    //* product.quantity para agregar la cantidad
+    return order.reduce((total, product) => total + product.price * product.qty, 0);
+    
   };
 
-  // Función para agrupar los productos por ID y sumar las cantidades
-  //   const groupedOrder = order.reduce((acc, product) => {
-  //     const existingProduct = acc.find((p) => p.id === product.id);
-  //     if (existingProduct) {
-  //       existingProduct.quantity += product.quantity;
-  //     } else {
-  //       acc.push({ ...product });
-  //     }
-  //     return acc;
-  //   }, []);
+  const handleRemoveClick = (productId) => {
+    setOrder((prevOrder) =>
+      prevOrder.filter((product) => product.id !== productId)
+    )}
 
   return (
     <>
@@ -31,13 +20,15 @@ export default function ListOrder({ order }) {
         <thead>
           <tr className='productsHeadTable'>
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Product Name</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'></th> 
             <th className=' bg-amber-400 basis-1/2 text-2xl'>Price</th>
+            <th className=' bg-amber-400 basis-1/2 text-2xl'>Remove</th>
             {/* <button className=' bg-amber-400 basis-1/2 text-8xl' 
             onClick={() => handleAddClick(product.qty)}>+</button>
             <button className=' bg-amber-400 basis-1/2 text-8xl'
             onClick={() => handleDeleteClick(product.qty)}>-</button> */}
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>+</th>
-            <th className=' bg-amber-400 basis-1/2 text-2xl'>-</th>
+            
+            {/* <th className=' bg-amber-400 basis-1/2 text-2xl'>-</th> */}
           </tr>
         </thead>
         <tbody>
@@ -48,14 +39,20 @@ export default function ListOrder({ order }) {
                   {product.name}
                 </td>
                 <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
+                  {product.qty}
+                </td>
+                <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
                   {product.price}$
                 </td>
-                <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
-                  {product.qty}
-                </td>
-                <td className=' bg-orange-100 basis-1/2 text-xl p-2'>
-                  {product.qty}
-                </td>
+                <td className='  bg-orange-100 basis-1/2 space-x-4 space-y-1 flex flex-row justify-center items-center'>
+                  
+                <Buttons
+                    onClick={handleRemoveClick}
+                    productId={product.id}
+                    label='Remove'
+                    className='buttonDelete rounded-lg border-2 border-red-500 p-2 text-1xl w-18 m-2 drop-shadow-lg'
+                 />
+                  </td>
               </tr>
             );
           })}
@@ -63,6 +60,7 @@ export default function ListOrder({ order }) {
         <tfoot>
           <tr>
             <th className='bg-orange-100  text-xl p-2'>Total</th>
+            <th className='bg-orange-100  text-xl p-2'></th>
             <th className='bg-orange-100 text-xl p-d'>{calculateTotal()}$</th>
           </tr>
         </tfoot>
