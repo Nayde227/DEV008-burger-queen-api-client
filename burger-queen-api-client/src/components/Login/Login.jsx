@@ -67,7 +67,7 @@ export default function Login() {
 
   return (
     <div className="padreLogin">
-      <h1>Burger Queen App</h1>
+      <h1 className="titleLogin">Burger Queen App</h1>
       <form className="formulario" onSubmit={onSubmitHandler}>
         <input
           className='Email'

@@ -33,7 +33,7 @@ export default function Cheff() {
     }, []);
 
     return (
-        <div className="padreLogin">
+        <div className="padreCheff">
             <section className='titleCheff ml-8 flex'>
                 <h1 className='text-amber-400 text-8xl '>Burger Queen Chef</h1>
                 <button

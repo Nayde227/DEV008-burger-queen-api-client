@@ -19,6 +19,14 @@
   min-height: 100vh;
   padding: 10px;
 }
+.padreCheff {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./assets/hamburguesaH.jpg");
+  background-size: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 10px;
+}
 
 
 body {
@@ -103,6 +111,7 @@ h1 {
 }
 
 @media screen and (min-width:1025px) and (max-width: 2000px) {
+  /*------LOGIN-----*/
   .padreLogin {
 
     background-size: 51%;
@@ -114,7 +123,7 @@ h1 {
     margin-left: 50%;
   }
 
-  h1 {
+  .titleLogin {
     margin-left: 55%;
     font-size: 90px;
   }
@@ -122,6 +131,31 @@ h1 {
   .btnsProfile {
     margin-left: 50%;
     margin-top: 7%;
+
+  }
+  .padreLogin {
+
+    background-size: 51%;
+    background-repeat: no-repeat;
+
+  }
+  /*------Cheff------*/
+  .titleCheff{
+    margin-left: 17%;
+  }
+  .padreCheff{
+    background-image: url("./assets/Horizontal.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  /*------Waiters------*/
+  .titleWaiters{
+    margin-left: 17%;
+  }
+  .padreWaiters{
+    background-image: url("./assets/Horizontal.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
 
   }
 }
