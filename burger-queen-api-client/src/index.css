@@ -59,6 +59,11 @@ h1 {
   flex-direction: row;
   width: 90%;
 }
+.titleCheff{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
 .buttonSingOut{
   
  
