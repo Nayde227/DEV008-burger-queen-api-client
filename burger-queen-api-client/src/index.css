@@ -145,17 +145,20 @@ h1 {
   }
   .padreCheff{
     background-image: url("./assets/Horizontal.png");
-    background-size: 100%;
+    background-size: 110%;
     background-repeat: no-repeat;
   }
   /*------Waiters------*/
   .titleWaiters{
     margin-left: 17%;
+    padding: 0%;
+    margin-bottom: -5%;
   }
   .padreWaiters{
     background-image: url("./assets/Horizontal.png");
-    background-size: 100%;
+    background-size: 120%;
     background-repeat: no-repeat;
-
+    padding: 0%;
+    
   }
 }
