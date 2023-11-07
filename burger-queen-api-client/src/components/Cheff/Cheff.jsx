@@ -60,51 +60,40 @@ export default function Cheff() {
             <h2 className='text-5xl font-bold mb-7'>Pending Orders</h2>
             {showOrders.map((product) => {
                 return (
-            <table className='TablePending flex flex-col mt-8 '> 
-            
-                <thead className='flex-col self-center'>
-                
-                    <tr key={product.id}>
-                        <th className=' bg-amber-400 text-2xl p-5'>{product.client}</th>
-                        
-                        <th className=' bg-amber-400 text-2xl p-7'>{product.dataEntry}</th>
-                        
-                        <th className=' bg-amber-400 text-2xl p-7'>{product.status}</th>
-                        
-                    </tr>
-                </thead>
-                <tbody className='flex flex-col self-center'>
+                    <table key={product.id} className='TablePending flex flex-col mt-8 table-auto items-center '>
 
-                    
-                        
-                            <tr  className='flex '>
-                                
-                                
+                        <thead className='flex-col '>
+
+                            <tr>
+                                <th className=' bg-amber-400 text-2xl p-5'>{product.client} </th>
+                                <th className=' bg-amber-400 text-2xl p-7'>{product.dataEntry}</th>
+                                <th className=' bg-amber-400 text-2xl p-7'>{product.status}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody className='flex flex-col '>
+
+                            <tr className='flex '>
                                 <td className=' bg-orange-100 text-2xl px-5 py-7 '>
                                     {product.products[0].product.name}
                                 </td>
-                                
+
                                 <td className=' bg-orange-100 text-2xl px-10 py-7 '>
                                     {product.products[0].qty}
                                 </td>
-                             </tr>
+                            </tr>
 
-                             <tr  className='flex' >
+                            <tr className='flex' >
                                 <td className=' bg-orange-100 text-2xl px-5 py-7 '>
                                     {product.products[1].product.name}
                                 </td>
                                 <td className=' bg-orange-100 text-2xl px-10 py-7 '>
                                     {product.products[1].qty}
                                 </td>
-
-
                             </tr>
 
-                           
-                    
-
-                </tbody>
-            </table>
+                        </tbody>
+                    </table>
                 );
             })}
         </div>

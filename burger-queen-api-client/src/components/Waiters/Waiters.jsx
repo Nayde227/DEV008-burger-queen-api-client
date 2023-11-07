@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListProducts from './ListPorduct';
 import ListOrder from './ListOrder';
+import axios from "axios";
+import Swal from 'sweetalert2';
 
 export default function Waiters() {
   const [order, setOrder] = useState([]);
@@ -17,31 +19,65 @@ export default function Waiters() {
   function handleSubmitOrder(e) {
     // Previene que el navegador recargue la página
     e.preventDefault();
+    
+  
+   //REVISAR PETICION
+   const token = localStorage.getItem('Mytoken'); //guardamos el token obtenido en el login para obtener los productos
+
+  const auth = `Bearer ${token}`;
     const headers = {
       'content-type': 'application/json',
-      authorization: auth,
+      'Authorization': auth,
     };
     const body = JSON.stringify(order)
     
     
     axios
-      .post('http://localhost:8080/products', {
+      .post('http://localhost:8080/orders', body, {
         headers: headers,
+        
       })
       .then((response) => {
-        setShowData(response.data);
+        setOrder(response.data);
+        Swal.fire({
+          title: "Order send!",
+          icon: "success",
+          confirmButtonColor: '#ffd700'
+        });
+         
+      })
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            title: 'Something wrong',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#f31414aa',
+          })
+        } 
       });
-  
 
+     
+   
+     }
+
+    function handleSubmit(e) {
+      // Previene que el navegador recargue la página
+      e.preventDefault();
+      
     // Lee los datos del formulario
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
+
     // Guarda el nombre del cliente en el estado
     setClientName(formJson.name);
 
     // Limpia el formulario (opcional)
     form.reset();
+
+    
   }
   return (
     <div className='padreWaiters'>
@@ -70,7 +106,7 @@ export default function Waiters() {
       </section>
       <h2 className='text-5xl font-bold p-4'>Create Order</h2>
 
-      <form method='post' onSubmit={handleSubmitOrder}>
+      <form method='post' onSubmit={handleSubmit}>
         <label className='bg-amber-400 basis-1/2 inputName text-3xl ml-2 p-1 rounded-lg'>
           Client Name:
           <input className='bg-orange-100 m-3' type='text' name='name' />
@@ -87,7 +123,9 @@ export default function Waiters() {
       <ListProducts setOrder={setOrder} order={order}></ListProducts>
       <ListOrder setOrder={setOrder} order={order}></ListOrder>
 
-      <button className='buttonSend rounded-lg bg-orange-100 p-1 m-3 text-3xl w-48 drop-shadow-2xl font-semibold'>
+      <button 
+      onClick={handleSubmitOrder}
+      className='buttonSend rounded-lg bg-orange-100 p-1 m-3 text-3xl w-48 drop-shadow-2xl font-semibold'>
         Send Order
       </button>
     </div>

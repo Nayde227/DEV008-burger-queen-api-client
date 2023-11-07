@@ -46,22 +46,14 @@ export default function Login() {
           
         
       }).catch((error) => {
-        if (error, !us.includes("systers.xyz")) {
+        if (error) {
           Swal.fire({
-            title: 'Cannot find user',
+            title: 'Wrong email or password',
             icon: 'error',
             confirmButtonText: 'Ok',
             confirmButtonColor: '#f31414aa',
           })
-        } else if ( error, pas !== "123456") {
-          Swal.fire({
-            title: 'Wrong Password',
-            icon: 'error',
-            confirmButtonText: 'Ok',
-            confirmButtonColor: '#f31414aa',
-            
-          })
-        }
+        } 
       });
   };
 
