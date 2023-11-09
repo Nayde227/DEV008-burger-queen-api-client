@@ -59,6 +59,7 @@ export default function Cheff() {
             </section>
             <h2 className='text-5xl font-bold mb-7'>Pending Orders</h2>
             {showOrders.map((product) => {
+                if (product.products && product.products.length > 0) {
                 return (
                     <table key={product.id} className='TablePending flex flex-col mt-8 table-auto items-center '>
 
@@ -83,19 +84,17 @@ export default function Cheff() {
                                 </td>
                             </tr>
 
-                            <tr className='flex' >
-                                <td className=' bg-orange-100 text-2xl px-5 py-7 '>
-                                    {product.products[1].product.name}
-                                </td>
-                                <td className=' bg-orange-100 text-2xl px-10 py-7 '>
-                                    {product.products[1].qty}
-                                </td>
-                            </tr>
+                            
 
                         </tbody>
                     </table>
-                );
-            })}
+                );} else {
+                    // Manejar el caso en el que product.products es undefined o tiene longitud cero.
+                    // Puedes devolver un componente vacío o algún otro mensaje de manejo de error.
+                    return null;
+                }
+            })
+            }
         </div>
     )
 }
