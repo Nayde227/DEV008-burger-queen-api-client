@@ -5,6 +5,8 @@ import axios from "axios";
 
 export default function Cheff() {
 
+    const [serve, setServe] = useState([]);
+
     const navigate = useNavigate();
     //boton atrás
     const handleBackClick = (e) => {
@@ -32,6 +34,12 @@ export default function Cheff() {
             });
     }, []);
 
+
+    function handleServeOrder(e) {
+        // Previene que el navegador recargue la página
+        e.preventDefault();
+        alert('Serve Order')
+    }
     return (
         <div className="padreCheff">
             <section className='titleCheff ml-8 flex'>
@@ -60,41 +68,61 @@ export default function Cheff() {
             <h2 className='text-5xl font-bold mb-7'>Pending Orders</h2>
             {showOrders.map((product) => {
                 if (product.products && product.products.length > 0) {
-                return (
-                    <table key={product.id} className='TablePending flex flex-col mt-8 table-auto items-center '>
+                    return (
+                        <table key={product.id} className='TablePending flex flex-col mt-8 table-auto items-center '>
 
-                        <thead className='flex-col '>
+                            <thead className='flex-col '>
 
-                            <tr>
-                                <th className=' bg-amber-400 text-2xl p-5'>{product.client} </th>
-                                <th className=' bg-amber-400 text-2xl p-7'>{product.dataEntry}</th>
-                                <th className=' bg-amber-400 text-2xl p-7'>{product.status}</th>
+                                <tr>
+                                    <th className=' bg-amber-400 text-2xl p-5'>{product.client} </th>
+                                    <th className=' bg-amber-400 text-2xl p-7'>{product.dataEntry}</th>
+                                    <th className=' bg-amber-400 text-2xl p-7'>{product.status}</th>
 
-                            </tr>
-                        </thead>
-                        <tbody className='flex flex-col '>
+                                </tr>
+                            </thead>
+                            <tbody className='flex flex-col '>
 
-                            <tr className='flex '>
-                                <td className=' bg-orange-100 text-2xl px-5 py-7 '>
-                                    {product.products[0].product.name}
-                                </td>
+                                <tr className='flex '>
+                                    <td className=' bg-orange-100 text-2xl px-5 py-7 '>
+                                        {product.products[0].product.name}
+                                    </td>
 
-                                <td className=' bg-orange-100 text-2xl px-10 py-7 '>
-                                    {product.products[0].qty}
-                                </td>
-                            </tr>
+                                    <td className=' bg-orange-100 text-2xl px-10 py-7 '>
+                                        {product.products[0].qty}
+                                    </td>
+                                </tr>
 
-                            
+                                <tr className='flex '>
+                                    <td className=' bg-orange-100 text-2xl px-5 py-7 '>
+                                        {product.products[1].product.name}
+                                    </td>
 
-                        </tbody>
-                    </table>
-                );} else {
-                    // Manejar el caso en el que product.products es undefined o tiene longitud cero.
-                    // Puedes devolver un componente vacío o algún otro mensaje de manejo de error.
+                                    <td className=' bg-orange-100 text-2xl px-10 py-7 '>
+                                        {product.products[1].qty}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <button
+                                            onClick={handleServeOrder}
+                                            className='buttonSend rounded-lg bg-amber-400 p-1 text-2xl w-48 drop-shadow-2xl font-semibold'>
+                                            Serve Order
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    );
+                } else {
+
                     return null;
                 }
             })
             }
+
+
         </div>
     )
 }
