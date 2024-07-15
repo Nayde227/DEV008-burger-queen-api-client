@@ -148,6 +148,11 @@ h1 {
     background-size: 110%;
     background-repeat: no-repeat;
   }
+  .dropdowni{
+    width:40px;
+    height: 40px;
+  }
+  
   /*------Waiters------*/
   .titleWaiters{
     margin-left: 17%;
